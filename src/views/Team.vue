@@ -9,7 +9,9 @@
 		<OtherButton></OtherButton>
 	</div>
 	<div class="navigation-buttons">
-		<router-link to="/project" tag="button" class="next-button">Next</router-link>
+		<router-link to="/project">
+			<button class="next-button">Next</button>
+		</router-link>
 	</div>
 </template>
 
