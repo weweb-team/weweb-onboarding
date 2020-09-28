@@ -1,5 +1,5 @@
 <template>
-	<div class="button-container">
+	<div class="button-container" :class="{ active: isClicked }" @click="buttonClick">
 		<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<g clip-path="url(#clip0)">
 				<path
@@ -56,7 +56,27 @@
 <script>
 export default {
 	name: 'LandingWebsiteButton',
+	data() {
+		return {
+			label: 'Landing website',
+		}
+	},
 	components: {},
+	computed: {
+		isClicked() {
+			return this.$store.getters.project === this.label
+		},
+	},
+	methods: {
+		buttonClick() {
+			console.log()
+			if (this.isClicked) {
+				this.$store.dispatch('changeProject', '')
+			} else {
+				this.$store.dispatch('changeProject', this.label)
+			}
+		},
+	},
 }
 </script>
 

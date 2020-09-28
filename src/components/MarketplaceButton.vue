@@ -1,5 +1,5 @@
 <template>
-	<div class="button-container">
+	<div class="button-container" :class="{ active: isClicked }" @click="buttonClick">
 		<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M12.0312 55.7812H9.84375V57.9688H12.0312V55.7812Z" fill="black" />
 			<path d="M7.65625 55.7812H5.46875V57.9688H7.65625V55.7812Z" fill="black" />
@@ -23,7 +23,27 @@
 <script>
 export default {
 	name: 'MarketplaceButton',
+	data() {
+		return {
+			label: 'Marketplace',
+		}
+	},
 	components: {},
+	computed: {
+		isClicked() {
+			return this.$store.getters.project === this.label
+		},
+	},
+	methods: {
+		buttonClick() {
+			console.log()
+			if (this.isClicked) {
+				this.$store.dispatch('changeProject', '')
+			} else {
+				this.$store.dispatch('changeProject', this.label)
+			}
+		},
+	},
 }
 </script>
 

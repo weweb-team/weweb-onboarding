@@ -18,16 +18,17 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import ShowcaseWebsiteButton from '../components/ShowcaseWebsiteButton'
 import LandingPageButton from '../components/LandingPageButton'
 import BlogButton from '../components/BlogButton'
 import MarketplaceButton from '../components/MarketplaceButton'
 import OtherButton from '../components/OtherButton'
 
-export default {
+export default defineComponent({
 	name: 'Project',
 	components: { ShowcaseWebsiteButton, LandingPageButton, BlogButton, MarketplaceButton, OtherButton },
-}
+})
 </script>
 
 <style></style>

@@ -2,20 +2,21 @@
 	<div id="app">
 		<div class="page-container">
 			<WewebLogo></WewebLogo>
-			<transition name="fade" mode="out-in">
-				<router-view />
-			</transition>
+			<!-- <transition name="fade" mode="out-in"> -->
+			<router-view />
+			<!-- </transition> -->
 		</div>
 	</div>
 </template>
 
-<script>
-import WewebLogo from './components/WewebLogo'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import WewebLogo from './components/WewebLogo.vue'
 
-export default {
+export default defineComponent({
 	name: 'App',
 	components: { WewebLogo },
-}
+})
 </script>
 
 <style lang="scss">
@@ -74,7 +75,8 @@ body {
 			text-align: left;
 			padding-left: 30px;
 
-			&:hover {
+			&:hover,
+			&.active {
 				cursor: pointer;
 				background-color: #f4fbff;
 				border: 1px solid transparent;
@@ -97,7 +99,8 @@ body {
 		justify-content: center;
 		transition: all 0.2s;
 
-		&:hover {
+		&:hover,
+		&.active {
 			cursor: pointer;
 			background-color: #f4fbff;
 			border: 1px solid #077ac0;

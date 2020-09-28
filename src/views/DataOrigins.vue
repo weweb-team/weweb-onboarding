@@ -14,13 +14,14 @@
 		<router-link to="/external-data">
 			<button class="back-button">Back</button>
 		</router-link>
-		<router-link to="/letsgo">
+		<router-link :to="setNextRoute">
 			<button class="next-button">Next</button>
 		</router-link>
 	</div>
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import GoogleSheetsButton from '../components/GoogleSheetsButton'
 import AirtableButton from '../components/AirtableButton'
 import ContentfulButton from '../components/ContentfulButton'
@@ -30,10 +31,15 @@ import PrismicButton from '../components/PrismicButton'
 import CustomAPIButton from '../components/CustomAPIButton'
 import OtherSmallButton from '../components/OtherSmallButton'
 
-export default {
+export default defineComponent({
 	name: 'DataOrigins',
 	components: { GoogleSheetsButton, AirtableButton, ContentfulButton, StrapiButton, WordpressButton, PrismicButton, CustomAPIButton, OtherSmallButton },
-}
+	computed: {
+		setNextRoute() {
+			return this.$store.getters.team === 'Engineer' ? '/frontend-components' : '/letsgo'
+		},
+	},
+})
 </script>
 
 <style></style>

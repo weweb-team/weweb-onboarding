@@ -1,5 +1,5 @@
 <template>
-	<div class="button-container">
+	<div class="button-container" :class="{ active: isClicked }" @click="buttonClick">
 		<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M2.99999 64.7871H12.1738V47.3975H2.99999V64.7871ZM4.99999 49.3975H10.1738V62.7871H4.99999V49.3975Z" fill="black" />
 			<path d="M21.2759 64.7871H30.4492V36.8174H21.2759V64.7871ZM23.2759 38.8174H28.4492V62.7871H23.2759V38.8174Z" fill="black" />
@@ -14,8 +14,27 @@
 <script>
 export default {
 	name: 'GrowthButton',
+	data() {
+		return {
+			label: 'Growth',
+		}
+	},
 	components: {},
+	computed: {
+		isClicked() {
+			return this.$store.getters.team === this.label
+		},
+	},
+	methods: {
+		buttonClick() {
+			if (this.isClicked) {
+				this.$store.dispatch('changeTeam', '')
+			} else {
+				this.$store.dispatch('changeTeam', this.label)
+			}
+		},
+	},
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>

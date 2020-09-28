@@ -1,5 +1,5 @@
 <template>
-	<div class="button-container">
+	<div class="button-container" :class="{ active: isClicked }" @click="buttonClick">
 		<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M17.5 6.5625H15.3125V8.75H17.5V6.5625Z" fill="black" />
 			<path d="M21.875 6.5625H19.6875V8.75H21.875V6.5625Z" fill="black" />
@@ -24,7 +24,26 @@
 <script>
 export default {
 	name: 'DesignButton',
+	data() {
+		return {
+			label: 'Design',
+		}
+	},
 	components: {},
+	computed: {
+		isClicked() {
+			return this.$store.getters.team === this.label
+		},
+	},
+	methods: {
+		buttonClick() {
+			if (this.isClicked) {
+				this.$store.dispatch('changeTeam', '')
+			} else {
+				this.$store.dispatch('changeTeam', this.label)
+			}
+		},
+	},
 }
 </script>
 

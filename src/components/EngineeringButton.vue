@@ -1,5 +1,5 @@
 <template>
-	<div class="button-container">
+	<div class="button-container" :class="{ active: isClicked }" @click="buttonClick">
 		<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M66.7188 47.0312H63.4375V14.2188C63.4375 13.0123 62.4564 12.0312 61.25 12.0312H8.75C7.54359 12.0312 6.5625 13.0123 6.5625 14.2188V47.0312H3.28125C2.6775 47.0312 2.1875 47.5213 2.1875 48.125C2.1875 53.5522 6.60406 57.9688 12.0312 57.9688H57.9688C63.3959 57.9688 67.8125 53.5522 67.8125 48.125C67.8125 47.5213 67.3225 47.0312 66.7188 47.0312ZM8.75 14.2188H61.25V47.0312H59.0625V17.5C59.0625 16.8963 58.5725 16.4062 57.9688 16.4062H19.6875V18.5938H56.875V47.0312H13.125V18.5938H17.5V16.4062H12.0312C11.4275 16.4062 10.9375 16.8963 10.9375 17.5V47.0312H8.75V14.2188ZM57.9688 55.7812H12.0312C8.18016 55.7812 4.98531 52.9244 4.45266 49.2188H65.5463C65.0147 52.9244 61.8198 55.7812 57.9688 55.7812Z"
@@ -17,7 +17,26 @@
 <script>
 export default {
 	name: 'EngineeringButton',
+	data() {
+		return {
+			label: 'Engineering',
+		}
+	},
 	components: {},
+	computed: {
+		isClicked() {
+			return this.$store.getters.team === this.label
+		},
+	},
+	methods: {
+		buttonClick() {
+			if (this.isClicked) {
+				this.$store.dispatch('changeTeam', '')
+			} else {
+				this.$store.dispatch('changeTeam', this.label)
+			}
+		},
+	},
 }
 </script>
 

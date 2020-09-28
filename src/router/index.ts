@@ -26,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
 		component: () => import('../views/DataOrigins.vue'),
 	},
 	{
+		path: '/frontend-components',
+		name: 'FrontendComponents',
+		component: () => import('../views/FrontendComponents.vue'),
+	},
+	{
 		path: '/letsgo',
 		name: 'Letsgo',
 		component: () => import('../views/Letsgo.vue'),

@@ -1,5 +1,5 @@
 <template>
-	<div class="button-container">
+	<div class="button-container" :class="{ active: isClicked }" @click="buttonClick">
 		<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M24.15 52.71H10.36C9.79999 52.71 9.37999 53.13 9.37999 53.69C9.37999 54.25 9.79999 54.67 10.36 54.67H24.15C24.71 54.67 25.13 54.25 25.13 53.69C25.13 53.13 24.71 52.71 24.15 52.71Z" fill="black" />
 			<path d="M41.86 52.71H28.14C27.58 52.71 27.16 53.13 27.16 53.69C27.16 54.25 27.58 54.67 28.14 54.67H41.93C42.49 54.67 42.91 54.25 42.91 53.69C42.91 53.13 42.42 52.71 41.86 52.71Z" fill="black" />
@@ -31,7 +31,27 @@
 <script>
 export default {
 	name: 'ShowcaseWebsiteButton',
+	data() {
+		return {
+			label: 'Showcase website',
+		}
+	},
 	components: {},
+	computed: {
+		isClicked() {
+			return this.$store.getters.project === this.label
+		},
+	},
+	methods: {
+		buttonClick() {
+			console.log()
+			if (this.isClicked) {
+				this.$store.dispatch('changeProject', '')
+			} else {
+				this.$store.dispatch('changeProject', this.label)
+			}
+		},
+	},
 }
 </script>
 

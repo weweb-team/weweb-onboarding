@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import MarketingButton from '../components/MarketingButton'
 import GrowthButton from '../components/GrowthButton'
 import ProductButton from '../components/ProductButton'
@@ -23,10 +24,10 @@ import EngineeringButton from '../components/EngineeringButton'
 import DesignButton from '../components/DesignButton'
 import OtherButton from '../components/OtherButton'
 
-export default {
+export default defineComponent({
 	name: 'Team',
 	components: { MarketingButton, GrowthButton, ProductButton, EngineeringButton, DesignButton, OtherButton },
-}
+})
 </script>
 
 <style></style>
