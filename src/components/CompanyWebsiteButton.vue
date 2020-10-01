@@ -24,16 +24,16 @@
 			<path d="M41.86 40.88H28.14C27.58 40.88 27.16 41.3 27.16 41.86V49.7C27.16 50.26 27.58 50.68 28.14 50.68H41.93C42.49 50.68 42.91 50.26 42.91 49.7V41.86C42.84 41.37 42.42 40.88 41.86 40.88Z" fill="black" />
 			<path d="M59.64 40.88H45.85C45.29 40.88 44.87 41.3 44.87 41.86V49.7C44.87 50.26 45.29 50.68 45.85 50.68H59.64C60.2 50.68 60.62 50.26 60.62 49.7V41.86C60.62 41.37 60.13 40.88 59.64 40.88Z" fill="black" />
 		</svg>
-		<p>Showcase website</p>
+		<p>My company's website</p>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'ShowcaseWebsiteButton',
+	name: 'CompanyWebsiteButton',
 	data() {
 		return {
-			label: 'Showcase website',
+			label: "My company's website",
 		}
 	},
 	components: {},

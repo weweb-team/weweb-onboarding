@@ -1,7 +1,7 @@
 <template>
 	<h2>What type of project do you want to create with WeWeb?</h2>
 	<div class="buttons-container">
-		<ShowcaseWebsiteButton></ShowcaseWebsiteButton>
+		<CompanyWebsiteButton></CompanyWebsiteButton>
 		<LandingPageButton></LandingPageButton>
 		<BlogButton></BlogButton>
 		<MarketplaceButton></MarketplaceButton>
@@ -19,7 +19,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import ShowcaseWebsiteButton from '../components/ShowcaseWebsiteButton'
+import CompanyWebsiteButton from '../components/CompanyWebsiteButton'
 import LandingPageButton from '../components/LandingPageButton'
 import BlogButton from '../components/BlogButton'
 import MarketplaceButton from '../components/MarketplaceButton'
@@ -27,7 +27,7 @@ import OtherButton from '../components/OtherButton'
 
 export default defineComponent({
 	name: 'Project',
-	components: { ShowcaseWebsiteButton, LandingPageButton, BlogButton, MarketplaceButton, OtherButton },
+	components: { CompanyWebsiteButton, LandingPageButton, BlogButton, MarketplaceButton, OtherButton },
 })
 </script>
 

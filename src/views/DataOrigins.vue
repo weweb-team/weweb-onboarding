@@ -36,7 +36,7 @@ export default defineComponent({
 	components: { GoogleSheetsButton, AirtableButton, ContentfulButton, StrapiButton, WordpressButton, PrismicButton, CustomAPIButton, OtherSmallButton },
 	computed: {
 		setNextRoute() {
-			return this.$store.getters.team === 'Engineer' ? '/frontend-components' : '/letsgo'
+			return this.$store.getters.team === 'Engineering' ? '/frontend-components' : '/letsgo'
 		},
 	},
 })

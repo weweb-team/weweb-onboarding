@@ -59,6 +59,16 @@ export const store = createStore({
 		dataOrigins(state) {
 			return state.dataOrigins
 		},
+		responses(state) {
+			return {
+				user: state.user,
+				team: state.team,
+				project: state.project,
+				externalData: state.externalData,
+				dataOrigins: state.dataOrigins,
+				frontendComponents: state.frontendComponents,
+			}
+		},
 	},
 	modules: {},
 })

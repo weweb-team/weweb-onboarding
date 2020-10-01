@@ -2,9 +2,9 @@
 	<div id="app">
 		<div class="page-container">
 			<WewebLogo></WewebLogo>
-			<!-- <transition name="fade" mode="out-in"> -->
-			<router-view />
-			<!-- </transition> -->
+			<transition name="fade">
+				<router-view></router-view>
+			</transition>
 		</div>
 	</div>
 </template>
@@ -75,13 +75,27 @@ body {
 			text-align: left;
 			padding-left: 30px;
 
-			&:hover,
-			&.active {
+			&:hover {
 				cursor: pointer;
 				background-color: #f4fbff;
 				border: 1px solid transparent;
 				color: #077ac0;
 				transition: all 0.2s;
+			}
+
+			&.active {
+				cursor: pointer;
+				background-color: #f4fbff;
+				border: 1px solid transparent;
+				color: #077ac0;
+				box-shadow: 0px 1px 2px rgba(30, 35, 36, 0.16);
+				transform: translateY(1px);
+				transition: all 0.2s;
+
+				path {
+					fill: #077ac0;
+					transition: all 0.2s;
+				}
 			}
 		}
 	}
@@ -99,12 +113,26 @@ body {
 		justify-content: center;
 		transition: all 0.2s;
 
-		&:hover,
+		&:hover {
+			cursor: pointer;
+			background-color: #f4fbff;
+			border: 1px solid #077ac0;
+			color: #077ac0;
+			transition: all 0.2s;
+
+			path {
+				fill: #077ac0;
+				transition: all 0.2s;
+			}
+		}
+
 		&.active {
 			cursor: pointer;
 			background-color: #f4fbff;
 			border: 1px solid #077ac0;
 			color: #077ac0;
+			box-shadow: 0px 1px 2px rgba(30, 35, 36, 0.16);
+			transform: translateY(1px);
 			transition: all 0.2s;
 
 			path {
@@ -154,13 +182,18 @@ body {
 	}
 }
 
-.fade-enter,
-.fade-leave-to {
-	opacity: 0;
-	transform: translateX(2em);
-}
 .fade-enter-active,
 .fade-leave-active {
-	transition: all 0.3 ease;
+	transition-property: opacity;
+	transition-duration: 0.25s;
+}
+
+.fade-enter-active {
+	transition-delay: 0.25s;
+}
+
+.fade-enter,
+.fade-leave-active {
+	opacity: 0;
 }
 </style>
