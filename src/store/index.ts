@@ -12,21 +12,30 @@ export const store = createStore({
 	mutations: {
 		setTeam(state, team: string) {
 			state.team = team
+			localStorage.setItem('wwForm-team', team)
 		},
 		setProject(state, project: string) {
 			state.project = project
+			localStorage.setItem('wwForm-project', project)
 		},
 		setExternalData(state, externalData: string) {
 			state.externalData = externalData
+			localStorage.setItem('wwForm-externalData', externalData)
 		},
 		addExternalData(state, dataOrigin: string) {
 			state.DataOrigin.push(dataOrigin)
+			localStorage.setItem('wwForm-dataOrigin', JSON.stringify(state.DataOrigin))
 		},
 		removeExternalData(state, dataOrigin: string) {
 			state.DataOrigin = state.DataOrigin.filter((item) => item !== dataOrigin)
+			localStorage.setItem('wwForm-dataOrigin', JSON.stringify(state.DataOrigin))
+		},
+		externalDataFromLocalStorage(state, dataOrigins) {
+			state.DataOrigin = dataOrigins
 		},
 		setFrontendComponents(state, frontendComponents) {
 			state.frontendComponents = frontendComponents
+			localStorage.setItem('wwForm-frontendComponents', frontendComponents)
 		},
 	},
 	actions: {
@@ -39,11 +48,14 @@ export const store = createStore({
 		changeExternalData({ commit }, externalData) {
 			commit('setExternalData', externalData)
 		},
-		addExternalDataItem({ commit }, externalData) {
-			commit('addExternalData', externalData)
+		addExternalDataItem({ commit }, dataOrigin) {
+			commit('addExternalData', dataOrigin)
 		},
-		removeExternalDataItem({ commit }, externalData) {
-			commit('removeExternalData', externalData)
+		removeExternalDataItem({ commit }, dataOrigin) {
+			commit('removeExternalData', dataOrigin)
+		},
+		externalDataFromLocalStorage({ commit }, dataOrigins) {
+			commit('externalDataFromLocalStorage', dataOrigins)
 		},
 		changeExternalComponents({ commit }, externalComponents) {
 			commit('setFrontendComponents', externalComponents)

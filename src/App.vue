@@ -1,10 +1,12 @@
 <template>
 	<div id="app">
-		<div class="page-container">
-			<WewebLogo></WewebLogo>
-			<transition name="fade">
-				<router-view></router-view>
-			</transition>
+		<WewebLogo></WewebLogo>
+		<div class="container">
+			<router-view v-slot="{ Component }">
+				<transition name="page" mode="out-in">
+					<component :is="Component"></component>
+				</transition>
+			</router-view>
 		</div>
 	</div>
 </template>
@@ -16,6 +18,24 @@ import WewebLogo from './components/WewebLogo.vue'
 export default defineComponent({
 	name: 'App',
 	components: { WewebLogo },
+	beforeMount() {
+		if (localStorage.getItem('wwForm-team')) {
+			this.$store.dispatch('changeTeam', localStorage.getItem('wwForm-team'))
+		}
+		if (localStorage.getItem('wwForm-project')) {
+			this.$store.dispatch('changeProject', localStorage.getItem('wwForm-project'))
+		}
+		if (localStorage.getItem('wwForm-externalData')) {
+			this.$store.dispatch('changeExternalData', localStorage.getItem('wwForm-externalData'))
+		}
+		if (localStorage.getItem('wwForm-dataOrigin')) {
+			console.log(localStorage.getItem('wwForm-dataOrigin'))
+			this.$store.dispatch('externalDataFromLocalStorage', localStorage.getItem('wwForm-dataOrigin'))
+		}
+		if (localStorage.getItem('wwForm-frontendComponents')) {
+			this.$store.dispatch('changeExternalComponents', localStorage.getItem('wwForm-frontendComponents'))
+		}
+	},
 })
 </script>
 
@@ -50,15 +70,20 @@ body {
 		margin: 0% 0 30px 0;
 	}
 
+	.container {
+		//position: absolute;
+		transition: 0.3s;
+	}
+
 	.buttons-container {
 		margin: auto;
 		width: 70vw;
-		max-width: 1500px;
+		max-width: 1000px;
 		min-height: 478px;
 		display: flex;
 		flex-flow: row wrap;
 		align-items: center;
-		justify-content: space-evenly;
+		justify-content: center;
 	}
 	.buttons-container-small {
 		width: 70%;
@@ -255,18 +280,16 @@ body {
 		}
 	}
 }
-.fade-enter-active,
-.fade-leave-active {
-	transition-property: opacity;
-	transition-duration: 0.25s;
+.page-enter-active {
+	transition: all 0.5s ease;
+}
+.page-leave-active {
+	transition: all 0.5s ease;
 }
 
-.fade-enter-active {
-	transition-delay: 0.25s;
-}
-
-.fade-enter,
-.fade-leave-active {
+.page-enter-from,
+.page-leave-to {
+	transform: translateX(10px);
 	opacity: 0;
 }
 </style>

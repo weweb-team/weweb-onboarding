@@ -1,22 +1,24 @@
 <template>
-	<h2>Will you import your frontend components?</h2>
-	<div class="buttons-container">
-		<YesButton></YesButton>
-		<NoButton></NoButton>
-	</div>
-	<div class="navigation-buttons">
-		<router-link to="/data-origin">
-			<button class="back-button">
-				<ReturnArrow />
-				Back
-			</button>
-		</router-link>
-		<router-link to="/letsgo">
-			<button class="next-button">
-				<NextArrow />
-				Next
-			</button>
-		</router-link>
+	<div>
+		<h2>Will you import your frontend components?</h2>
+		<div class="buttons-container">
+			<YesButton></YesButton>
+			<NoButton></NoButton>
+		</div>
+		<div class="navigation-buttons">
+			<router-link to="/data-origin">
+				<button class="back-button">
+					<ReturnArrow />
+					Back
+				</button>
+			</router-link>
+			<router-link to="/letsgo">
+				<button class="next-button">
+					<NextArrow />
+					Next
+				</button>
+			</router-link>
+		</div>
 	</div>
 </template>
 

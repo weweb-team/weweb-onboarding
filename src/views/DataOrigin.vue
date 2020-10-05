@@ -1,28 +1,30 @@
 <template>
-	<h2>From where will this data come from?</h2>
-	<div class="buttons-container-small">
-		<GoogleSheetsButton></GoogleSheetsButton>
-		<AirtableButton></AirtableButton>
-		<ContentfulButton></ContentfulButton>
-		<StrapiButton></StrapiButton>
-		<WordpressButton></WordpressButton>
-		<PrismicButton></PrismicButton>
-		<CustomAPIButton></CustomAPIButton>
-		<OtherSmallButton></OtherSmallButton>
-	</div>
-	<div class="navigation-buttons">
-		<router-link to="/external-data">
-			<button class="back-button">
-				<ReturnArrow />
-				Back
-			</button>
-		</router-link>
-		<router-link :to="setNextRoute">
-			<button class="next-button">
-				<NextArrow />
-				Next
-			</button>
-		</router-link>
+	<div>
+		<h2>From where will this data come from?</h2>
+		<div class="buttons-container-small">
+			<GoogleSheetsButton></GoogleSheetsButton>
+			<AirtableButton></AirtableButton>
+			<ContentfulButton></ContentfulButton>
+			<StrapiButton></StrapiButton>
+			<WordpressButton></WordpressButton>
+			<PrismicButton></PrismicButton>
+			<CustomAPIButton></CustomAPIButton>
+			<OtherSmallButton></OtherSmallButton>
+		</div>
+		<div class="navigation-buttons">
+			<router-link to="/external-data">
+				<button class="back-button">
+					<ReturnArrow />
+					Back
+				</button>
+			</router-link>
+			<router-link :to="setNextRoute">
+				<button class="next-button">
+					<NextArrow />
+					Next
+				</button>
+			</router-link>
+		</div>
 	</div>
 </template>
 

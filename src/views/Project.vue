@@ -1,25 +1,27 @@
 <template>
-	<h2>What type of project do you want to create with WeWeb?</h2>
-	<div class="buttons-container">
-		<CompanyWebsiteButton></CompanyWebsiteButton>
-		<LandingPageButton></LandingPageButton>
-		<BlogButton></BlogButton>
-		<MarketplaceButton></MarketplaceButton>
-		<OtherButton></OtherButton>
-	</div>
-	<div class="navigation-buttons">
-		<router-link to="/">
-			<button class="back-button">
-				<ReturnArrow />
-				Back
-			</button>
-		</router-link>
-		<router-link to="/external-data">
-			<button class="next-button">
-				Next
-				<NextArrow />
-			</button>
-		</router-link>
+	<div>
+		<h2>What type of project do you want to create with WeWeb?</h2>
+		<div class="buttons-container">
+			<CompanyWebsiteButton></CompanyWebsiteButton>
+			<LandingPageButton></LandingPageButton>
+			<BlogButton></BlogButton>
+			<MarketplaceButton></MarketplaceButton>
+			<OtherButton></OtherButton>
+		</div>
+		<div class="navigation-buttons">
+			<router-link to="/">
+				<button class="back-button">
+					<ReturnArrow />
+					Back
+				</button>
+			</router-link>
+			<router-link to="/external-data">
+				<button class="next-button">
+					Next
+					<NextArrow />
+				</button>
+			</router-link>
+		</div>
 	</div>
 </template>
 

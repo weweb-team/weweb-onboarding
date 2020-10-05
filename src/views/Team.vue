@@ -1,20 +1,22 @@
 <template>
-	<h2>What team do you work on, John?</h2>
-	<div class="buttons-container">
-		<MarketingButton></MarketingButton>
-		<GrowthButton></GrowthButton>
-		<ProductButton></ProductButton>
-		<EngineeringButton></EngineeringButton>
-		<DesignButton></DesignButton>
-		<OtherButton></OtherButton>
-	</div>
-	<div class="navigation-buttons">
-		<router-link to="/project">
-			<button class="next-button">
-				Next
-				<NextArrow />
-			</button>
-		</router-link>
+	<div>
+		<h2>What team do you work on, John?</h2>
+		<div class="buttons-container">
+			<MarketingButton></MarketingButton>
+			<GrowthButton></GrowthButton>
+			<ProductButton></ProductButton>
+			<EngineeringButton></EngineeringButton>
+			<DesignButton></DesignButton>
+			<OtherButton></OtherButton>
+		</div>
+		<div class="navigation-buttons">
+			<router-link to="/project">
+				<button class="next-button">
+					Next
+					<NextArrow />
+				</button>
+			</router-link>
+		</div>
 	</div>
 </template>
 
