@@ -1,5 +1,13 @@
 <template>
 	<div class="button-container" :class="{ active: isClicked }" @click="buttonClick">
+		<svg id="tick" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				fill-rule="evenodd"
+				clip-rule="evenodd"
+				d="M13.6585 3.24744C14.0741 3.61112 14.1163 4.24288 13.7526 4.65852L6.75258 12.6585C6.57032 12.8668 6.30989 12.9902 6.03328 12.9995C5.75666 13.0087 5.4886 12.9028 5.29289 12.7071L2.29289 9.70712C1.90237 9.3166 1.90237 8.68343 2.29289 8.29291C2.68342 7.90238 3.31658 7.90238 3.70711 8.29291L5.95129 10.5371L12.2474 3.34151C12.6111 2.92587 13.2429 2.88375 13.6585 3.24744Z"
+				fill="#1E2324"
+			/>
+		</svg>
 		<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M24.15 52.71H10.36C9.79999 52.71 9.37999 53.13 9.37999 53.69C9.37999 54.25 9.79999 54.67 10.36 54.67H24.15C24.71 54.67 25.13 54.25 25.13 53.69C25.13 53.13 24.71 52.71 24.15 52.71Z" fill="black" />
 			<path d="M41.86 52.71H28.14C27.58 52.71 27.16 53.13 27.16 53.69C27.16 54.25 27.58 54.67 28.14 54.67H41.93C42.49 54.67 42.91 54.25 42.91 53.69C42.91 53.13 42.42 52.71 41.86 52.71Z" fill="black" />
@@ -39,7 +47,7 @@ export default {
 	components: {},
 	computed: {
 		isClicked() {
-			return this.$store.getters.project === this.label
+			return this.$store.state.project === this.label
 		},
 	},
 	methods: {

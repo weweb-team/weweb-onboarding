@@ -52,12 +52,13 @@ body {
 
 	.buttons-container {
 		margin: auto;
-		width: 70%;
+		width: 70vw;
 		max-width: 1500px;
 		min-height: 478px;
 		display: flex;
 		flex-flow: row wrap;
-		justify-content: space-around;
+		align-items: center;
+		justify-content: space-evenly;
 	}
 	.buttons-container-small {
 		width: 70%;
@@ -66,7 +67,7 @@ body {
 
 		display: flex;
 		flex-direction: column;
-		justify-content: space-around;
+		justify-content: space-evenly;
 
 		.button-container.small {
 			width: 406px;
@@ -100,6 +101,8 @@ body {
 		}
 	}
 	.button-container {
+		position: relative;
+		//flex: 0 1 calc(3% - 54px);
 		margin: 30px;
 		width: 206px;
 		height: 177px;
@@ -139,11 +142,28 @@ body {
 				fill: #077ac0;
 				transition: all 0.2s;
 			}
+
+			#tick {
+				opacity: 1;
+				transition: all 0.2s;
+
+				path {
+					fill: #1e2324;
+					transition: all 0.2s;
+				}
+			}
 		}
 
 		svg {
 			margin-left: 50%;
 			transform: translateX(-50%);
+		}
+
+		#tick {
+			opacity: 0;
+			position: absolute;
+			top: 12px;
+			right: 12px;
 		}
 
 		p {
@@ -155,6 +175,7 @@ body {
 		margin: 30px 0 0% 0;
 
 		button {
+			position: relative;
 			outline: none;
 			font-size: 16px;
 			font-weight: 700;
@@ -162,26 +183,78 @@ body {
 			margin: 16px;
 			border: none;
 			border-radius: 8px;
-			transition: 0.2s;
-
-			&:hover {
-				cursor: pointer;
-				transition: 0.2s;
-			}
+			transition: 0.3s;
 
 			&.next-button {
 				color: #ffffff;
 				background-color: #099af2;
+
+				&:hover {
+					cursor: pointer;
+					transition: 0.3s;
+					padding-left: 22px;
+					padding-right: 42px;
+
+					.nextArrow {
+						opacity: 1;
+						transform: translateY(calc(-50% + 2px)) translateX(0px);
+						transition: all 0.4s;
+					}
+				}
 			}
 
 			&.back-button {
 				color: #6a7678;
 				background-color: #eceeef;
+
+				&:hover {
+					cursor: pointer;
+					transition: 0.3s;
+					padding-left: 42px;
+					padding-right: 22px;
+
+					.returnArrow {
+						opacity: 1;
+						transform: translateY(calc(-50% + 1px)) translateX(0px);
+						transition: all 0.4s;
+					}
+				}
+			}
+
+			.nextArrow {
+				opacity: 0;
+				width: 16px;
+				height: 16px;
+
+				position: absolute;
+				top: 50%;
+				right: 18px;
+				transform: translateY(calc(-50% + 2px)) translateX(-10px);
+				transition: all 0.2s;
+
+				path {
+					fill: white;
+				}
+			}
+
+			.returnArrow {
+				opacity: 0;
+				width: 16px;
+				height: 16px;
+
+				position: absolute;
+				top: 50%;
+				left: 18px;
+				transform: translateY(calc(-50% + 1px)) translateX(10px);
+				transition: all 0.2s;
+
+				path {
+					fill: #6a7678;
+				}
 			}
 		}
 	}
 }
-
 .fade-enter-active,
 .fade-leave-active {
 	transition-property: opacity;

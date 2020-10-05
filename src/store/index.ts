@@ -6,7 +6,7 @@ export const store = createStore({
 		team: '',
 		project: '',
 		externalData: '',
-		dataOrigins: [] as string[],
+		DataOrigin: [] as string[],
 		frontendComponents: '',
 	},
 	mutations: {
@@ -20,10 +20,10 @@ export const store = createStore({
 			state.externalData = externalData
 		},
 		addExternalData(state, dataOrigin: string) {
-			state.dataOrigins.push(dataOrigin)
+			state.DataOrigin.push(dataOrigin)
 		},
 		removeExternalData(state, dataOrigin: string) {
-			state.dataOrigins = state.dataOrigins.filter((item) => item !== dataOrigin)
+			state.DataOrigin = state.DataOrigin.filter((item) => item !== dataOrigin)
 		},
 		setFrontendComponents(state, frontendComponents) {
 			state.frontendComponents = frontendComponents
@@ -45,27 +45,18 @@ export const store = createStore({
 		removeExternalDataItem({ commit }, externalData) {
 			commit('removeExternalData', externalData)
 		},
+		changeExternalComponents({ commit }, externalComponents) {
+			commit('setFrontendComponents', externalComponents)
+		},
 	},
 	getters: {
-		team(state) {
-			return state.team
-		},
-		project(state) {
-			return state.project
-		},
-		externalData(state) {
-			return state.externalData
-		},
-		dataOrigins(state) {
-			return state.dataOrigins
-		},
 		responses(state) {
 			return {
 				user: state.user,
 				team: state.team,
 				project: state.project,
 				externalData: state.externalData,
-				dataOrigins: state.dataOrigins,
+				DataOrigin: state.DataOrigin,
 				frontendComponents: state.frontendComponents,
 			}
 		},

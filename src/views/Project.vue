@@ -9,10 +9,16 @@
 	</div>
 	<div class="navigation-buttons">
 		<router-link to="/">
-			<button class="back-button">Back</button>
+			<button class="back-button">
+				<ReturnArrow />
+				Back
+			</button>
 		</router-link>
 		<router-link to="/external-data">
-			<button class="next-button">Next</button>
+			<button class="next-button">
+				Next
+				<NextArrow />
+			</button>
 		</router-link>
 	</div>
 </template>
@@ -24,10 +30,12 @@ import LandingPageButton from '../components/LandingPageButton'
 import BlogButton from '../components/BlogButton'
 import MarketplaceButton from '../components/MarketplaceButton'
 import OtherButton from '../components/OtherButton'
+import ReturnArrow from '../components/ReturnArrow'
+import NextArrow from '../components/NextArrow'
 
 export default defineComponent({
 	name: 'Project',
-	components: { CompanyWebsiteButton, LandingPageButton, BlogButton, MarketplaceButton, OtherButton },
+	components: { CompanyWebsiteButton, LandingPageButton, BlogButton, MarketplaceButton, OtherButton, ReturnArrow, NextArrow },
 })
 </script>
 

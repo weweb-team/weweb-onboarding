@@ -6,10 +6,16 @@
 	</div>
 	<div class="navigation-buttons">
 		<router-link to="/project">
-			<button class="back-button">Back</button>
+			<button class="back-button">
+				<ReturnArrow />
+				Back
+			</button>
 		</router-link>
 		<router-link :to="setNextRoute">
-			<button class="next-button">Next</button>
+			<button class="next-button">
+				<NextArrow />
+				Next
+			</button>
 		</router-link>
 	</div>
 </template>
@@ -18,13 +24,15 @@
 import { defineComponent } from 'vue'
 import YesButton from '../components/YesButton'
 import NoButton from '../components/NoButton'
+import ReturnArrow from '../components/ReturnArrow'
+import NextArrow from '../components/NextArrow'
 
 export default defineComponent({
 	name: 'ExternalData',
-	components: { YesButton, NoButton },
+	components: { YesButton, NoButton, ReturnArrow, NextArrow },
 	computed: {
 		setNextRoute() {
-			return this.$store.getters.externalData === 'Yes' ? '/data-origins' : '/letsgo'
+			return this.$store.state.externalData === 'Yes' ? '/data-origin' : '/letsgo'
 		},
 	},
 })

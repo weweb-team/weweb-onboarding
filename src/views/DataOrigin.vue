@@ -12,10 +12,16 @@
 	</div>
 	<div class="navigation-buttons">
 		<router-link to="/external-data">
-			<button class="back-button">Back</button>
+			<button class="back-button">
+				<ReturnArrow />
+				Back
+			</button>
 		</router-link>
 		<router-link :to="setNextRoute">
-			<button class="next-button">Next</button>
+			<button class="next-button">
+				<NextArrow />
+				Next
+			</button>
 		</router-link>
 	</div>
 </template>
@@ -30,13 +36,15 @@ import WordpressButton from '../components/WordpressButton'
 import PrismicButton from '../components/PrismicButton'
 import CustomAPIButton from '../components/CustomAPIButton'
 import OtherSmallButton from '../components/OtherSmallButton'
+import ReturnArrow from '../components/ReturnArrow'
+import NextArrow from '../components/NextArrow'
 
 export default defineComponent({
-	name: 'DataOrigins',
-	components: { GoogleSheetsButton, AirtableButton, ContentfulButton, StrapiButton, WordpressButton, PrismicButton, CustomAPIButton, OtherSmallButton },
+	name: 'DataOrigin',
+	components: { GoogleSheetsButton, AirtableButton, ContentfulButton, StrapiButton, WordpressButton, PrismicButton, CustomAPIButton, OtherSmallButton, ReturnArrow, NextArrow },
 	computed: {
 		setNextRoute() {
-			return this.$store.getters.team === 'Engineering' ? '/frontend-components' : '/letsgo'
+			return this.$store.state.team === 'Engineering' ? '/frontend-components' : '/letsgo'
 		},
 	},
 })

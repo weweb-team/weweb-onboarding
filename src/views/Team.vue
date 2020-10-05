@@ -10,7 +10,10 @@
 	</div>
 	<div class="navigation-buttons">
 		<router-link to="/project">
-			<button class="next-button">Next</button>
+			<button class="next-button">
+				Next
+				<NextArrow />
+			</button>
 		</router-link>
 	</div>
 </template>
@@ -23,10 +26,11 @@ import ProductButton from '../components/ProductButton'
 import EngineeringButton from '../components/EngineeringButton'
 import DesignButton from '../components/DesignButton'
 import OtherButton from '../components/OtherButton'
+import NextArrow from '../components/NextArrow'
 
 export default defineComponent({
 	name: 'Team',
-	components: { MarketingButton, GrowthButton, ProductButton, EngineeringButton, DesignButton, OtherButton },
+	components: { MarketingButton, GrowthButton, ProductButton, EngineeringButton, DesignButton, OtherButton, NextArrow },
 })
 </script>
 

@@ -5,11 +5,17 @@
 		<NoButton></NoButton>
 	</div>
 	<div class="navigation-buttons">
-		<router-link to="/data-origins">
-			<button class="back-button">Back</button>
+		<router-link to="/data-origin">
+			<button class="back-button">
+				<ReturnArrow />
+				Back
+			</button>
 		</router-link>
 		<router-link to="/letsgo">
-			<button class="next-button">Next</button>
+			<button class="next-button">
+				<NextArrow />
+				Next
+			</button>
 		</router-link>
 	</div>
 </template>
@@ -18,10 +24,12 @@
 import { defineComponent } from 'vue'
 import YesButton from '../components/YesButton'
 import NoButton from '../components/NoButton'
+import ReturnArrow from '../components/ReturnArrow'
+import NextArrow from '../components/NextArrow'
 
 export default defineComponent({
 	name: 'FrontendComponents',
-	components: { YesButton, NoButton },
+	components: { YesButton, NoButton, ReturnArrow, NextArrow },
 })
 </script>
 
