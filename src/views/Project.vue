@@ -10,13 +10,13 @@
 		</div>
 		<div class="navigation-buttons">
 			<router-link to="/">
-				<button class="back-button">
+				<button class="back-button" @mouseover="setTransitionDirection('left')">
 					<ReturnArrow />
 					Back
 				</button>
 			</router-link>
 			<router-link to="/external-data">
-				<button class="next-button">
+				<button class="next-button" @mouseover="setTransitionDirection('right')">
 					Next
 					<NextArrow />
 				</button>
@@ -37,6 +37,9 @@ import NextArrow from '../components/NextArrow'
 
 export default defineComponent({
 	name: 'Project',
+	props: {
+		setTransitionDirection: Function,
+	},
 	components: { CompanyWebsiteButton, LandingPageButton, BlogButton, MarketplaceButton, OtherButton, ReturnArrow, NextArrow },
 })
 </script>

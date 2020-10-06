@@ -3,8 +3,8 @@
 		<WewebLogo></WewebLogo>
 		<div class="container">
 			<router-view v-slot="{ Component }">
-				<transition name="page" mode="out-in">
-					<component :is="Component"></component>
+				<transition :name="transitionDirection" mode="out-in">
+					<component :setTransitionDirection="setTransitionDirection" :is="Component"></component>
 				</transition>
 			</router-view>
 		</div>
@@ -13,11 +13,26 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
 import WewebLogo from './components/WewebLogo.vue'
 
 export default defineComponent({
 	name: 'App',
+	data() {
+		return {
+			transitionDirection: 'right',
+		}
+	},
 	components: { WewebLogo },
+	methods: {
+		setTransitionDirection(direction: string) {
+			this.transitionDirection = direction
+		},
+	},
+	beforeRouteLeave() {
+		console.log('test')
+		// const answer = window.confirm('Do you really want to leave? you have unsaved changes!')
+	},
 	beforeMount() {
 		if (localStorage.getItem('wwForm-team')) {
 			this.$store.dispatch('changeTeam', localStorage.getItem('wwForm-team'))
@@ -29,8 +44,9 @@ export default defineComponent({
 			this.$store.dispatch('changeExternalData', localStorage.getItem('wwForm-externalData'))
 		}
 		if (localStorage.getItem('wwForm-dataOrigin')) {
-			console.log(localStorage.getItem('wwForm-dataOrigin'))
-			this.$store.dispatch('externalDataFromLocalStorage', localStorage.getItem('wwForm-dataOrigin'))
+			const jsonData = localStorage.getItem('wwForm-dataOrigin')
+			const originData = jsonData !== null ? JSON.parse(jsonData) : '[]'
+			this.$store.dispatch('externalDataFromLocalStorage', originData)
 		}
 		if (localStorage.getItem('wwForm-frontendComponents')) {
 			this.$store.dispatch('changeExternalComponents', localStorage.getItem('wwForm-frontendComponents'))
@@ -280,16 +296,29 @@ body {
 		}
 	}
 }
-.page-enter-active {
+.right-enter-active {
 	transition: all 0.5s ease;
 }
-.page-leave-active {
+.right-leave-active {
 	transition: all 0.5s ease;
 }
 
-.page-enter-from,
-.page-leave-to {
-	transform: translateX(10px);
+.right-enter-from,
+.right-leave-to {
+	transform: translateX(20px);
+	opacity: 0;
+}
+
+.left-enter-active {
+	transition: all 0.5s ease;
+}
+.left-leave-active {
+	transition: all 0.5s ease;
+}
+
+.left-enter-from,
+.left-leave-to {
+	transform: translateX(-20px);
 	opacity: 0;
 }
 </style>
