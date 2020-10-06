@@ -23,7 +23,7 @@ export default {
 	components: {},
 	computed: {
 		isClicked() {
-			return this.$store.state.DataOrigin.includes(this.label)
+			return this.$store.state.dataOrigin.includes(this.label)
 		},
 	},
 	methods: {

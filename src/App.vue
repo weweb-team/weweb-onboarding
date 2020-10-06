@@ -8,6 +8,7 @@
 				</transition>
 			</router-view>
 		</div>
+		<PleaseAnswer></PleaseAnswer>
 	</div>
 </template>
 
@@ -15,6 +16,7 @@
 import { defineComponent } from 'vue'
 
 import WewebLogo from './components/WewebLogo.vue'
+import PleaseAnswer from './views/PleaseAnswer.vue'
 
 export default defineComponent({
 	name: 'App',
@@ -23,34 +25,37 @@ export default defineComponent({
 			transitionDirection: 'right',
 		}
 	},
-	components: { WewebLogo },
+	components: { WewebLogo, PleaseAnswer },
 	methods: {
 		setTransitionDirection(direction: string) {
 			this.transitionDirection = direction
 		},
 	},
-	beforeRouteLeave() {
-		console.log('test')
-		// const answer = window.confirm('Do you really want to leave? you have unsaved changes!')
-	},
 	beforeMount() {
-		if (localStorage.getItem('wwForm-team')) {
-			this.$store.dispatch('changeTeam', localStorage.getItem('wwForm-team'))
+		if (sessionStorage.getItem('wwForm-team')) {
+			this.$store.dispatch('changeTeam', sessionStorage.getItem('wwForm-team'))
 		}
-		if (localStorage.getItem('wwForm-project')) {
-			this.$store.dispatch('changeProject', localStorage.getItem('wwForm-project'))
+		if (sessionStorage.getItem('wwForm-project')) {
+			this.$store.dispatch('changeProject', sessionStorage.getItem('wwForm-project'))
 		}
-		if (localStorage.getItem('wwForm-externalData')) {
-			this.$store.dispatch('changeExternalData', localStorage.getItem('wwForm-externalData'))
+		if (sessionStorage.getItem('wwForm-externalData')) {
+			this.$store.dispatch('changeExternalData', sessionStorage.getItem('wwForm-externalData'))
 		}
-		if (localStorage.getItem('wwForm-dataOrigin')) {
-			const jsonData = localStorage.getItem('wwForm-dataOrigin')
+		if (sessionStorage.getItem('wwForm-dataOrigin')) {
+			const jsonData = sessionStorage.getItem('wwForm-dataOrigin')
 			const originData = jsonData !== null ? JSON.parse(jsonData) : '[]'
-			this.$store.dispatch('externalDataFromLocalStorage', originData)
+			this.$store.dispatch('externalDataFromsessionStorage', originData)
 		}
-		if (localStorage.getItem('wwForm-frontendComponents')) {
-			this.$store.dispatch('changeExternalComponents', localStorage.getItem('wwForm-frontendComponents'))
+		if (sessionStorage.getItem('wwForm-frontendComponents')) {
+			this.$store.dispatch('changeExternalComponents', sessionStorage.getItem('wwForm-frontendComponents'))
 		}
+	},
+	watch: {
+		$route() {
+			if (this.$store.state.displayWarning) {
+				this.$store.dispatch('displayWarning', false)
+			}
+		},
 	},
 })
 </script>
@@ -59,6 +64,10 @@ export default defineComponent({
 body {
 	background-color: #f5f5f5;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                               App main style                               */
+/* -------------------------------------------------------------------------- */
 
 #app {
 	font-family: 'Work Sans', sans-serif;
@@ -295,7 +304,48 @@ body {
 			}
 		}
 	}
+
+	/* -------------------------------------------------------------------------- */
+	/*                                Warning popup                               */
+	/* -------------------------------------------------------------------------- */
+
+	.pleaseAnswer {
+		display: flex;
+		flex-direction: row;
+		position: absolute;
+		bottom: 16px;
+		right: 16px;
+		width: 300px;
+		border: 1px solid #eeeeee;
+		background-color: #ffffff;
+		border-radius: 5px;
+		box-shadow: 0px 4px 4px rgba(30, 35, 36, 0.16);
+		padding: 5px;
+		font-weight: 500;
+		opacity: 0;
+		transform: translateX(120%);
+		transition: all 0.5s;
+
+		svg {
+			width: 28px;
+			margin: 10px;
+
+			path {
+				fill: #099af2;
+			}
+		}
+	}
+	.pleaseAnswer.active {
+		opacity: 1;
+		transform: translateX(0%);
+		transition: all 0.5s;
+	}
 }
+
+/* -------------------------------------------------------------------------- */
+/*                          Route transition to right                         */
+/* -------------------------------------------------------------------------- */
+
 .right-enter-active {
 	transition: all 0.5s ease;
 }
@@ -308,6 +358,10 @@ body {
 	transform: translateX(20px);
 	opacity: 0;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                          Route transition to left                         */
+/* -------------------------------------------------------------------------- */
 
 .left-enter-active {
 	transition: all 0.5s ease;

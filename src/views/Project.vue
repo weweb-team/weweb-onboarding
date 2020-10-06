@@ -15,12 +15,10 @@
 					Back
 				</button>
 			</router-link>
-			<router-link to="/external-data">
-				<button class="next-button" @mouseover="setTransitionDirection('right')">
-					Next
-					<NextArrow />
-				</button>
-			</router-link>
+			<button class="next-button" @mouseover="setTransitionDirection('right')" @click="goTo('/external-data')">
+				Next
+				<NextArrow />
+			</button>
 		</div>
 	</div>
 </template>
@@ -41,6 +39,26 @@ export default defineComponent({
 		setTransitionDirection: Function,
 	},
 	components: { CompanyWebsiteButton, LandingPageButton, BlogButton, MarketplaceButton, OtherButton, ReturnArrow, NextArrow },
+	methods: {
+		goTo(to) {
+			const response = this.$store.state.project
+			if (!response || response.lenght <= 0) {
+				this.$store.dispatch('displayWarning', true)
+			} else {
+				this.$router.push({ path: to })
+			}
+		},
+		checkPreviousResponses() {
+			const teamResponse = this.$store.state.team
+
+			if (!teamResponse || teamResponse.length <= 0) {
+				this.$router.push('/')
+			}
+		},
+	},
+	mounted() {
+		this.checkPreviousResponses()
+	},
 })
 </script>
 

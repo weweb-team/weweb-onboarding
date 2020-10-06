@@ -12,12 +12,10 @@
 					Back
 				</button>
 			</router-link>
-			<router-link :to="setNextRoute">
-				<button class="next-button" @mouseover="setTransitionDirection('right')">
-					<NextArrow />
-					Next
-				</button>
-			</router-link>
+			<button class="next-button" @mouseover="setTransitionDirection('right')" @click="goTo(setNextRoute)">
+				<NextArrow />
+				Next
+			</button>
 		</div>
 	</div>
 </template>
@@ -39,6 +37,29 @@ export default defineComponent({
 		setNextRoute() {
 			return this.$store.state.externalData === 'Yes' ? '/data-origin' : '/letsgo'
 		},
+	},
+	methods: {
+		goTo(to) {
+			const response = this.$store.state.externalData
+			if (!response || response.lenght <= 0) {
+				this.$store.dispatch('displayWarning', true)
+			} else {
+				this.$router.push({ path: to })
+			}
+		},
+		checkPreviousResponses() {
+			const teamResponse = this.$store.state.team
+			const projectResponse = this.$store.state.project
+
+			if (!teamResponse || teamResponse.length <= 0) {
+				this.$router.push('/')
+			} else if (!projectResponse || projectResponse.length <= 0) {
+				this.$router.push('/project')
+			}
+		},
+	},
+	mounted() {
+		this.checkPreviousResponses()
 	},
 })
 </script>

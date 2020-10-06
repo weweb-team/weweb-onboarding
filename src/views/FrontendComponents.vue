@@ -12,12 +12,10 @@
 					Back
 				</button>
 			</router-link>
-			<router-link to="/letsgo">
-				<button class="next-button" @mouseover="setTransitionDirection('right')">
-					<NextArrow />
-					Next
-				</button>
-			</router-link>
+			<button class="next-button" @mouseover="setTransitionDirection('right')" @click="goTo('/letsgo')">
+				<NextArrow />
+				Next
+			</button>
 		</div>
 	</div>
 </template>
@@ -35,6 +33,37 @@ export default defineComponent({
 		setTransitionDirection: Function,
 	},
 	components: { YesButton, NoButton, ReturnArrow, NextArrow },
+	methods: {
+		goTo(to) {
+			const response = this.$store.state.frontendComponents
+			if (!response || response.length <= 0) {
+				this.$store.dispatch('displayWarning', true)
+			} else {
+				this.$router.push({ path: to })
+			}
+		},
+		checkPreviousResponses() {
+			const teamResponse = this.$store.state.team
+			const projectResponse = this.$store.state.project
+			const externalDataResponse = this.$store.state.externalData
+			const dataOriginResponse = this.$store.state.dataOrigin
+
+			if (!teamResponse || teamResponse.length <= 0) {
+				this.$router.push('/')
+			} else if (!projectResponse || projectResponse.length <= 0) {
+				this.$router.push('/project')
+			} else if (!externalDataResponse || externalDataResponse.length <= 0) {
+				this.$router.push('/external-data')
+			} else if (!dataOriginResponse || dataOriginResponse.length <= 0) {
+				if (this.$store.state.externalData === 'Yes') {
+					this.$router.push('/data-origin')
+				}
+			}
+		},
+	},
+	mounted() {
+		this.checkPreviousResponses()
+	},
 })
 </script>
 

@@ -10,12 +10,10 @@
 			<OtherButton></OtherButton>
 		</div>
 		<div class="navigation-buttons">
-			<router-link to="/project">
-				<button class="next-button" @mouseover="setTransitionDirection('right')">
-					Next
-					<NextArrow />
-				</button>
-			</router-link>
+			<button class="next-button" @mouseover="setTransitionDirection('right')" @click="goTo('/project')">
+				Next
+				<NextArrow />
+			</button>
 		</div>
 	</div>
 </template>
@@ -36,6 +34,16 @@ export default defineComponent({
 		setTransitionDirection: Function,
 	},
 	components: { MarketingButton, GrowthButton, ProductButton, EngineeringButton, DesignButton, OtherButton, NextArrow },
+	methods: {
+		goTo(to) {
+			const response = this.$store.state.team
+			if (!response || response.length <= 0) {
+				this.$store.dispatch('displayWarning', true)
+			} else {
+				this.$router.push({ path: to })
+			}
+		},
+	},
 })
 </script>
 
