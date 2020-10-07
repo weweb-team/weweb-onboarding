@@ -44,6 +44,9 @@ export default defineComponent({
 			}
 		},
 	},
+	mounted() {
+		window.analytics.page('Onboarding - Team')
+	},
 })
 </script>
 

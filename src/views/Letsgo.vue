@@ -12,6 +12,7 @@ export default defineComponent({
 	mounted() {
 		this.checkPreviousResponses()
 		console.log(this.$store.getters.responses)
+		window.analytics.track('Onboarding - Let\'s go')
 	},
 	methods: {
 		checkPreviousResponses() {
