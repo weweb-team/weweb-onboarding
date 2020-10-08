@@ -63,6 +63,7 @@ export default defineComponent({
 <style lang="scss">
 body {
 	background-color: #f5f5f5;
+	overflow: hidden;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -81,8 +82,6 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	overflow: hidden;
 
 	#weweb-logo {
 		position: absolute;

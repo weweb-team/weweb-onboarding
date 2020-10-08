@@ -57,16 +57,16 @@
 				</clipPath>
 			</defs>
 		</svg>
-		<p>Landing website</p>
+		<p>Landing page</p>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'LandingWebsiteButton',
+	name: 'LandingPageButton',
 	data() {
 		return {
-			label: 'Landing website',
+			label: 'Landing page',
 		}
 	},
 	components: {},
