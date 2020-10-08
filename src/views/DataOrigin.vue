@@ -75,7 +75,7 @@ export default defineComponent({
 	},
 	mounted() {
 		this.checkPreviousResponses()
-		window.analytics.track('Onboarding', 'Data Origin')
+		window.analytics.page('Onboarding', 'Data Origin')
 	},
 })
 </script>

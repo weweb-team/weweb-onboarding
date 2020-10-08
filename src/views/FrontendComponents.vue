@@ -63,7 +63,7 @@ export default defineComponent({
 	},
 	mounted() {
 		this.checkPreviousResponses()
-		window.analytics.track('Onboarding', 'Frontend Components')
+		window.analytics.page('Onboarding', 'Frontend Components')
 	},
 })
 </script>
