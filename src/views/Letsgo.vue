@@ -11,8 +11,10 @@ export default defineComponent({
 	components: {},
 	mounted() {
 		this.checkPreviousResponses()
-		console.log(this.$store.getters.responses)
+		const responses = this.$store.getters.responses
+		console.log(responses)
 		window.analytics.page('Onboarding', "Let's go")
+		window.analytics.track('Onboarding finished', {...responses})
 	},
 	methods: {
 		checkPreviousResponses() {
