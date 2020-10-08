@@ -58,7 +58,7 @@ export default defineComponent({
 	},
 	mounted() {
 		this.checkPreviousResponses()
-		window.analytics.track('Onboarding - Project')
+		window.analytics.track('Onboarding', 'Project')
 	},
 })
 </script>

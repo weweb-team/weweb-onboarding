@@ -60,7 +60,7 @@ export default defineComponent({
 	},
 	mounted() {
 		this.checkPreviousResponses()
-		window.analytics.track('Onboarding - External Data')
+		window.analytics.track('Onboarding', 'External Data')
 	},
 })
 </script>
