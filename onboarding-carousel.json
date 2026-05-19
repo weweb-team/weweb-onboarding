@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "slideDurationMs": 10000,
+  "slides": [
+    {
+      "id": "build-interface",
+      "icon": "16/plus-circle",
+      "title": "Build your interface",
+      "subtitle": "Add panel: drag Basics onto the canvas, organize with containers.",
+      "asset": "add-panel-drag-element.gif",
+      "imageAlt": "Dragging an element from the Add panel to the canvas"
+    },
+    {
+      "id": "style-ui",
+      "icon": "16/pencil",
+      "title": "Style your UI",
+      "subtitle": "Styling tab—typography, color, spacing, and breakpoints.",
+      "asset": "intro-to-editor-styling-icon.gif",
+      "imageAlt": "Opening the Styling tab for a selected element"
+    },
+    {
+      "id": "connect-data",
+      "icon": "16/table",
+      "title": "Connect your data",
+      "subtitle": "Tables and views in Data & API, then fetch, bind, or repeat in Interface.",
+      "asset": "intro-to-editor-bind-data.gif",
+      "imageAlt": "Binding data to elements in the editor"
+    },
+    {
+      "id": "interactivity",
+      "icon": "16/lightning-bolt",
+      "title": "Add interactivity",
+      "subtitle": "Variables, workflows, and bindings keep the UI in sync with users and data.",
+      "asset": "workflows-on-page.gif",
+      "imageAlt": "Working with workflows in the editor"
+    },
+    {
+      "id": "backend-stack",
+      "icon": "16/server",
+      "title": "Power up Data & API",
+      "subtitle": "Tables, API workflows, triggers, functions, and middleware on the server.",
+      "asset": "left-data.gif",
+      "imageAlt": "Exploring the Data & API area of the editor"
+    },
+    {
+      "id": "secure-publish",
+      "icon": "16/rocket",
+      "title": "Secure and go live",
+      "subtitle": "Auth, permissions, deploy, then track versions in Deployments.",
+      "asset": "deployments2.gif",
+      "imageAlt": "Creating a manual editor commit before publish"
+    },
+    {
+      "id": "weweb-academy",
+      "type": "cta",
+      "icon": "16/book-open",
+      "title": "Want to learn more?",
+      "subtitle": "Head to the WeWeb Academy for courses, tutorials, and guided paths.",
+      "asset": "academy-guides-bg.png",
+      "imageAlt": "WeWeb Academy guides: Intro, Authentication, Storage, and Securing APIs & Table Views",
+      "ctaLabel": "Open WeWeb Academy",
+      "ctaUrl": "https://academy.weweb.io/"
+    }
+  ]
+}
