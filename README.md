@@ -19,6 +19,7 @@ assets/                    GIFs / images referenced by slide.asset
 {
   "version": 1,                 // bump only on a breaking schema change
   "slideDurationMs": 10000,     // auto-advance interval
+  "mediaMaxHeight": 380,        // optional, px — media frame max height (code default: 380)
   "slides": [
     {
       "id": "build-interface",  // stable unique id
@@ -41,6 +42,18 @@ assets/                    GIFs / images referenced by slide.asset
     }
   ]
 }
+```
+
+## Media size
+
+`mediaMaxHeight` (optional, top-level, pixels) sets the max height of the
+slide media frame. It is optional: when omitted (or invalid), the editor uses
+its built-in default of **380px**. Set it here to make the GIFs/images larger
+or smaller without an editor release — the responsive cap still applies, so the
+frame never exceeds the available canvas height.
+
+```jsonc
+"mediaMaxHeight": 480   // taller media; remove this line to fall back to 380
 ```
 
 ## Editing

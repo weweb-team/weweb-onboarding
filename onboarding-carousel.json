@@ -1,6 +1,7 @@
 {
   "version": 1,
   "slideDurationMs": 10000,
+  "mediaMaxHeight": 380,
   "slides": [
     {
       "id": "build-interface",
