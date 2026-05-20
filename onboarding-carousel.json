@@ -1,47 +1,42 @@
 {
   "version": 1,
   "slideDurationMs": 10000,
-  "mediaMaxHeight": 380,
+  "mediaMaxHeight": 437,
   "slides": [
     {
       "id": "build-interface",
-      "icon": "16/plus-circle",
       "title": "Build your interface",
       "subtitle": "Open the Add panel and drag elements onto the canvas.",
-      "asset": "step-1-add-.gif",
+      "asset": "step-1-add.gif",
       "imageAlt": "Dragging an element from the Add panel to the canvas",
       "durationMs": 11000
     },
     {
       "id": "style-ui",
-      "icon": "16/pencil",
       "title": "Style your UI",
       "subtitle": "Use the Styling tab to adjust the appearance of your elements.",
-      "asset": "step-2-style-.gif",
+      "asset": "step-2-style.gif",
       "imageAlt": "Opening the Styling tab for a selected element",
       "durationMs": 7500
     },
     {
       "id": "bindings",
-      "icon": "16/link",
       "title": "Use bindings",
       "subtitle": "Bind properties to dynamic data and formulas so the UI updates automatically.",
-      "asset": "step-3-binding-.gif",
+      "asset": "step-3-binding.gif",
       "imageAlt": "Binding data and variables to elements in the editor",
       "durationMs": 11000
     },
     {
       "id": "workflows",
-      "icon": "16/lightning-bolt",
       "title": "Use workflows",
       "subtitle": "Run custom no-code logic when users interact with your app, like clicking an element.",
-      "asset": "step-4-workflow-.gif",
+      "asset": "step-4-workflow.gif",
       "imageAlt": "Building and running workflows in the editor",
       "durationMs": 18500
     },
     {
       "id": "connect-data",
-      "icon": "16/table",
       "title": "Connect your data",
       "subtitle": "Set up tables and views in `Data & API`, then show their data in the `Interface`.",
       "asset": "step-5-connect-data.gif",
@@ -50,7 +45,6 @@
     },
     {
       "id": "backend-stack",
-      "icon": "16/lock-closed",
       "title": "Secure your logic",
       "subtitle": "Add security restrictions to your table views and API endpoints.",
       "asset": "step-6-secure.gif",
@@ -59,7 +53,6 @@
     },
     {
       "id": "secure-publish",
-      "icon": "16/rocket",
       "title": "Go live",
       "subtitle": "Publish your application to your own domain or a WeWeb subdomain.",
       "asset": "deployments2.gif",
@@ -68,7 +61,6 @@
     {
       "id": "weweb-academy",
       "type": "cta",
-      "icon": "16/book-open",
       "title": "Want to learn more?",
       "subtitle": "Head to the WeWeb Academy for courses, tutorials, and guided paths.",
       "asset": "academy-guides-bg.png",
