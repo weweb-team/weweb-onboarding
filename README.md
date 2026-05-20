@@ -18,7 +18,7 @@ assets/                    GIFs / images referenced by slide.asset
 ```jsonc
 {
   "version": 1,                 // bump only on a breaking schema change
-  "slideDurationMs": 10000,     // auto-advance interval
+  "slideDurationMs": 10000,     // default auto-advance interval (fallback per slide)
   "mediaMaxHeight": 380,        // optional, px — media frame max height (code default: 380)
   "slides": [
     {
@@ -27,7 +27,8 @@ assets/                    GIFs / images referenced by slide.asset
       "title": "…",
       "subtitle": "…",
       "asset": "file.gif",      // resolved to assets/<asset> on this branch
-      "imageAlt": "…"
+      "imageAlt": "…",
+      "durationMs": 8000          // optional; per-slide auto-advance (falls back to slideDurationMs)
     },
     {
       "id": "weweb-academy",
@@ -55,6 +56,20 @@ frame never exceeds the available canvas height.
 ```jsonc
 "mediaMaxHeight": 480   // taller media; remove this line to fall back to 380
 ```
+
+## Local development (with weweb-editor)
+
+1. Clone this repo next to `weweb-editor` (sibling directory), or set `WEWWEB_ONBOARDING_PATH`.
+2. In `weweb-editor`, copy `env/.env.development.local.example` → `env/.env.development.local`.
+3. Run the editor as usual (`npm run serve` or `npm run serve:dev`).
+4. In the browser devtools console:
+   - `wwLib.__onboardingCarousel.show()` — open the carousel overlay
+   - `wwLib.__onboardingCarousel.reload()` — re-fetch JSON after edits
+   - `wwLib.__onboardingCarousel.hide()` — close the overlay
+
+Edits to `onboarding-carousel.json` and `assets/` are served live from your local clone (no commit/push needed). Reload the carousel after JSON changes.
+
+Without `.env.development.local`, the editor uses production content from GitHub `main` (cached in `localStorage` under `ww-onboarding-carousel`).
 
 ## Editing
 
